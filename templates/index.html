@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="static/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <title>Thoth | Herramienta virtual de Lectura</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="icon" href="thoth.png">
+    </head>
+
+    <body>
+        <!--Navigation Bar old-->
+        <!--
+        <header class="header">
+            <nav class="navbar navbar-style navbar-fixed-top" role="navigation">
+                <div class="container border">
+                    <div class="navbar-header ">
+                        <h1 class="border" style="font-weight:bold;font-size:40px" href="index.html">Thoth <img src="thoth.png" class="img-fluid" style="height:40px;width:auto" alt=""></h1>
+                    </div>
+                    <ul class="nav nav-pills justify-content-end">
+                      <li class="nav-item">
+                        <a class="nav-link active" style="background-color:black;font-size:20px" href="evaluate.html">Evalúate</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" style="color:black;font-size:20px" href="recursos_lectura.html">Recursos Literarios</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" style="color:black;font-size:20px" href="quienes_somos.html">Quienes Somos</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" style="color:black;font-size:20px" href="contacto.html">Contacto</a>
+                      </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        -->
+        <!--Navigation Bar new-->
+        <nav class="navbar navbar-expand-lg navbar-light navbar-style sticky-top" role="navigation">
+                <div class="container">
+                    <a class="navbar-brand" href="{{url_for('index')}}" ><h1 style="font-weight:bold;font-size:200%;font-family:cambria">Thoth <img src="static/thoth.png" class="img-fluid" style="max-width:40px;height:auto" alt=""></h1></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="row">
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                                <li class="nav-item active align-self-center">
+                                    <form action="/evaluate">
+                                      <input type="submit" class="btn" value="Evalúate" style="background-color:black;color:white;font-size:22px" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                    </form>
+                                </li>
+                                <li class="nav-item align-self-center">
+                                    <a class="nav-link" style="color:black;font-size:20px" href="{{url_for('recursos')}}" href="#">Recursos Literarios</a>
+                                </li>
+                                <li class="nav-item align-self-center">
+                                    <a class="nav-link" style="color:black;font-size:20px" href="{{url_for('quienes_somos')}}" href="#">Quienes Somos</a>
+                                </li>
+                                <li class="nav-item align-self-center">
+                                    <a class="nav-link" style="color:black;font-size:20px" href="{{url_for('contacto')}}" href="#">Contacto</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        <!--First Container to atract users-->
+        <div class="container pt-5 pb-5 mx-auto" style="max-height:auto">
+          <div class="row">
+            <div class="col-sm-6 my-auto mx-auto mt-5" style="max-height:auto">
+                <div class="row justify-content-center mx-auto">
+                    <h1 class="text-justify text-center" style="font-size:230%;font-weight:bold">
+                      Una herramienta para el fortalecimiento de tu comprensión
+                    </h1>
+                    <p class="text-justify text-center" style="font-size:100%">La lectura puede llevar a ideas inigualables</p>
+                </div>
+                <div class="row justify-content-center mx-auto">
+                  <form action="/evaluate">
+                      <input type="submit" class="btn" value="Evalúate" style="background-color:black;color:white;font-size:22px" data-toggle="button" aria-pressed="false" autocomplete="off">
+                  </form>
+                </div>
+            </div>
+            <div class="col-sm-6 mx-auto" style="max-height:auto">
+              <div class="row justify-content-center mx-auto">
+              <img src="static/gus1.png" class="img-fluid mt-2" style="max-width:100%;height:auto">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Second Container to show users the resources available-->
+        <div class="container pt-5 pb-5" style="max-height:auto">
+          <div class="row justify-content-center mx-auto my-auto">
+            <div class="col-sm-6 mx-auto my-auto">
+              <img src="static/audiobook.png" class="img-fluid pt-5" style="max-width: 100%; height:auto" alt="">
+            </div>
+            <div class="col-sm-5 mx-auto my-auto" >
+              <h2  style="font-size:200%;font-weight:bold">Obtén recursos digitales</h2>
+              <p class="text-justify " style="font-size:100%">Para impulsar tu lectura, Thoth te proporciona lecturas interactivas que permiten mejorar tu destreza en la comprensión lectora.</p>
+              <p class="text-justify " style="font-size:100%">Encuentra ya tus <a href="{{url_for('recursos')}}" style="color:#ffd700">audiolibros.</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!--Banner-->
+
+        <span class="d-block" style="background-color:black;height:300px;margin-top:100px">
+          <div class="container my-auto">
+            <div class="row justify-content-center">
+              <img src="static/moon.jpg" class="img-fluid" style="width:300px;height:auto" alt="">
+            </div>
+          </div>
+        </span>
+
+        <!--What is Thoth-->
+
+          <div class="container mt-5">
+            <div class="row justify-content-center">
+              <h1 class="text-justify text-center mb-3" style="font-size:250%;font-weight:bold">¿Qué es Thoth?</h1>
+          </div>
+            <div class="row mx-auto my-auto justify-content-center">
+              <div class="col-sm-6 mx-auto my-auto">
+                <p class="text-justify" style="font-size:120%">
+                  Es un sistema de herramientas digitales para incentivar la lectura <strong>en personas de cualquier edad y nivel de estudios.</strong>
+                </p>
+                <p class="text-justify" style="font-size:120%">
+                  Su objetivo radica en la importancia de practicar la lectura, ya que ella permite la apertura a nuevas ideas y pensamientos que desarrollan la capacidad intelectual del ser humano.
+                </p>
+                <p class="text-justify" style="font-size:120%">
+                  Esta herramienta está siendo desarrollada por estudiantes universitarios, inspirada en el egicipcio Thoth, Dios de la sabiduría, de las escrituras sagradas, de la magia y de la luna.
+                </p>
+              </div>
+            </div>
+            <div class="row mx-auto my-auto justify-content-center">
+              <img src="static/thoth-1.png" class="img-fluid" style="max-width:100%;height:auto" alt="">
+            </div>
+          </div>
+
+        <!--Photo Slide-->
+
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="static/book1.jpg" class="d-block w-100 img-fluid" style="max-width: 100%;height:auto" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="static/book.jpg" class="d-block w-100 img-fluid" style="max-width: 100%;height:auto" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="static/book3.jpg" class="d-block w-100 img-fluid" style="max-width: 100%;height:auto" alt="...">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+
+        <!--Banner-->
+        <div class="container-fluid" style="background-color:#626567;height:300px">
+          <div class="row align-self-center justify-content-center my-auto mt-5 p-3">
+            <div class="col-sm-8 my-auto p-5">
+              <a href="{{url_for('recursos')}}"  style="color:#ffd700;font-size:100%;font-weight:bold">Recursos</p>
+              <a href="{{url_for('quienes_somos')}}" style="color:#ffd700;font-size:100%;font-weight:bold">Conoce la iniciativa.</p>
+              <a href="{{url_for('contacto')}}" style="color:#ffd700;font-size:100%;font-weight:bold">Contáctanos.</p>
+            </div>
+          </div>
+        </div>
+
+        <footer>
+        <div class="container-fluid" style="background-color:black;height:50px">
+          <div class="row justify-content-end">
+            <p class="pr-5"style="color:white;font-size:100%">Thoth &#169 2021</p>
+          </div>
+        </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="static/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <title>Thoth | Herramienta virtual de Lectura</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="icon" href="thoth.png">
+      <!--  <script>-->
+      <!--       function check(input)-->
+      <!--  {-->
+
+    	 <!--   var checkboxes = document.getElementById("radioCheck");-->
+
+    	 <!--   for(var i = 0; i < checkboxes.length; i++)-->
+    	 <!--   {-->
+    		<!--//uncheck all-->
+    		<!--if(checkboxes[i].checked == true)-->
+    		<!--{-->
+    		<!--	checkboxes[i].checked = false;-->
+    		<!--}-->
+    	 <!--   }-->
+
+    	    <!--//set checked of clicked object-->
+    	 <!--   if(input.checked == true)-->
+    	 <!--   {-->
+    		<!--    input.checked = false;-->
+    	 <!--   }-->
+    	 <!--   else-->
+    	 <!--   {-->
+    		<!--    input.checked = true;-->
+      <!--  	}-->
+      <!--  }-->
+      <!--  </script>-->
+    </head>
+
+
+     <body>
+        <!--Navigation Bar new-->
+        <!--Navigation Bar new-->
+        <nav class="navbar navbar-expand-lg navbar-light navbar-style sticky-top" role="navigation">
+                <div class="container">
+                    <a class="navbar-brand" href="{{url_for('index')}}" ><h1 style="font-weight:bold;font-size:200%;font-family:cambria">Thoth <img src="static/thoth.png" class="img-fluid" style="max-width:40px;height:auto" alt=""></h1></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="row">
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                                <li class="nav-item active align-self-center">
+                                    <form action="/evaluate">
+                                      <input type="submit" class="btn" value="Evalúate" style="background-color:black;color:white;font-size:22px" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                    </form>
+                                </li>
+                                <li class="nav-item align-self-center">
+                                    <a class="nav-link" style="color:black;font-size:20px" href="{{url_for('recursos')}}" href="#">Recursos Literarios</a>
+                                </li>
+                                <li class="nav-item align-self-center">
+                                    <a class="nav-link" style="color:black;font-size:20px" href="{{url_for('quienes_somos')}}" href="#">Quienes Somos</a>
+                                </li>
+                                <li class="nav-item align-self-center">
+                                    <a class="nav-link" style="color:black;font-size:20px" href="{{url_for('contacto')}}" href="#">Contacto</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        <div class="container">
+            <div class="row justify-content-center mx-auto">
+                <div class="col-sm-12">
+                    <h1 class="mb-5 mt-5" style="font-size:150%">Presta atención a la lectura expuesta y responde cuidadosamente las preguntas. </h1>
+                    <h1 class="text-center"style="font-size:250%">{{lectura_nombre}}</h1>
+                    <p style="font-size:100%">{{lectura_texto}}</p>
+
+                </div>
+            <div class="row justify-content-center mx-auto">
+                <div class="col-sm-10">
+                    <h2 style="font-size:200%"><u>Preguntas</u></h2>
+
+
+                    <form action="/grade" method="post">
+                            {% for row in preguntas %}
+                            <h3 style="font-size:150%">• {{row.pregunta}}</h3>
+                                {% for key in lista %}
+                                <input id="radioCheck" name="{{ row[key] }}" type="checkbox" value="{{ row[key] }}">
+                                <label style="font-size:90%" for="{{ row[key] }}">{{ row[key] }}</label><br>
+
+                                {% endfor %}
+                            {% endfor %}
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <input type="submit" style="background-color:black;color:white;font-size:150%;font-weight:bold" value="Envia tu test">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <!--<div class="row justify-content-center mx-auto">-->
+            <!--    <div class="col-sm-10">-->
+            <!--        <input type="button" onclick="submitForms()" value="Enviar respuestas">-->
+            <!--    </div>-->
+            <!--</div>-->
+        </div>
+
+
+
+
+
+
+
+        <footer>
+        <div class="container-fluid" style="background-color:black;height:50px">
+          <div class="row justify-content-end">
+            <p class="pr-5"style="color:white;font-size:100%">Thoth &#169 2021</p>
+          </div>
+
+        </div>
+        </footer>
+
+
+
+
+
+
+    </body>
+

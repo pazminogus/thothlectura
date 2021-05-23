@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+    <head>
+        <link href="static/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <title>Thoth | Herramienta virtual de Lectura</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="icon" href="thoth.png">
+    </head>
+
+
+     <body>
+        <<!--Navigation Bar new-->
+        <nav class="navbar navbar-expand-lg navbar-light navbar-style sticky-top" role="navigation">
+                <div class="container">
+                    <a class="navbar-brand" href="{{url_for('index')}}" ><h1 style="font-weight:bold;font-size:200%;font-family:cambria">Thoth <img src="static/thoth.png" class="img-fluid" style="max-width:40px;height:auto" alt=""></h1></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="row">
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                                <li class="nav-item active align-self-center">
+                                    <form action="/evaluate">
+                                      <input type="submit" class="btn" value="Evalúate" style="background-color:black;color:white;font-size:22px" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                    </form>
+                                </li>
+                                <li class="nav-item align-self-center">
+                                    <a class="nav-link" style="color:black;font-size:20px" href="{{url_for('recursos')}}" href="#">Recursos Literarios</a>
+                                </li>
+                                <li class="nav-item align-self-center">
+                                    <a class="nav-link" style="color:black;font-size:20px" href="{{url_for('quienes_somos')}}" href="#">Quienes Somos</a>
+                                </li>
+                                <li class="nav-item align-self-center">
+                                    <a class="nav-link" style="color:black;font-size:20px" href="{{url_for('contacto')}}" href="#">Contacto</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        <!--First Container-->
+        <div class="container mt-5 mb-5" style="margin-botom:30px">
+            <div class="row">
+                <div class="col-sm-8">
+
+
+                    <h1 class="mb-3"style="font-size:200%">
+                        Evalúa tu comprensión lectora en poco tiempo.
+                    </h1>
+                    <p class="mb-5" style="font-size:100%">
+                        Realiza un test rápido para evaluar tu comprensión lectora. La idea es simple, se presenta un texto aleatorio en base a la categoría seleccionada. En él, habrán preguntas del texto que tienes que responder. Obtendrás una calificación.
+                    </p>
+
+                    <form action="/iniciate" method="post" class="needs-validation" novalidate>
+                        <div class="form-row
+                        col-sm-5">
+                            <label for="inputState" >Indica la categoría</label>
+                            <select class="custom-select" id="inputState" name="valor" required>
+                                <option selected disabled>Escoge entre las disponibles...</option>
+                                {% for categoria in categorias %}
+                                    <option value="{{ categoria }}">{{ categoria }}</option>
+                                {% endfor %}
+                            </select>
+                            <div class="invalid-tooltip">
+                                Selecciona una opción porfavor
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-3">
+                            <div class="col-sm-8">
+                                <input type="submit" value="Comenzar" type="button" class="btn" style="background-color:black;color:white;font-size:150%;font-weight:bold" data-toggle="button" aria-pressed="false" autocomplete="off">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!--Banner-->
+
+
+
+        <div class="container-fluid fixed-bottom mt-5" style="background-color:black;height:50px">
+          <div class="row justify-content-end">
+            <p class="pr-5"style="color:white;font-size:100%">Thoth &#169 2021</p>
+          </div>
+
+        </div>
+
+     </body>
+
+
+
+
+
+</html>

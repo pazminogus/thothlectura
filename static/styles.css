@@ -1,0 +1,80 @@
+*{
+
+  margin:0;
+  padding:0;
+
+}
+.header{
+
+  height:30px;
+
+}
+.navbar-style{
+  box-shadow:0 5px 10px #efefef;
+   height:auto; /* Not mandatory as is default if not specifed */
+   background-color: 	#ffd700 ;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+
+}
+
+.logo{
+
+  height:48px;
+  width:auto;
+}
+
+.icon-bar{
+  background-color: green;
+}
+
+.container_test{
+  border:auto;
+
+}
+
+
+
+.board-container{padding:40px;box-sizing:border-box}
+.board{background-color:teal;height:100%;padding:40px;
+
+.gustavo{
+  background-color:black;
+  width:100%;
+  height:auto;
+}
+
+
+#paragraph{
+  padding: 100px;
+}
+
+
+html {
+  font-size: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+
+.
